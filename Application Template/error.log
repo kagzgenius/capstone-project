@@ -1,0 +1,8 @@
+[12-Sep-2024 17:25:17 UTC] Error: 
+[12-Sep-2024 17:28:04 UTC] Error: 
+[12-Sep-2024 17:30:30 UTC] Error in Preparing statement for profile table: 
+[12-Sep-2024 17:34:26 UTC] Error in Preparing statement for profile table: 
+[12-Sep-2024 17:39:47 UTC] Error in Preparing statement for profile table:  SQL: SELECT first_name, last_name, bio FROM profile WHERE username = ?
+[12-Sep-2024 17:42:20 UTC] Error in Preparing statement for profile table:  SQL: SELECT first_name, last_name, bio FROM profile WHERE username = ?
+[12-Sep-2024 17:42:21 UTC] Error in Preparing statement for profile table:  SQL: SELECT first_name, last_name, bio FROM profile WHERE username = ?
+[12-Sep-2024 17:42:22 UTC] Error in Preparing statement for profile table:  SQL: SELECT first_name, last_name, bio FROM profile WHERE username = ?
