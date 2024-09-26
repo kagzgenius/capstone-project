@@ -1,7 +1,33 @@
+<!--
+ * Creator: Zach Fordahl
+ * Date: 9/26/2024
+ * Class: CSC450
+ * Instructor: James Tucker
+ * Group: 3
+ * 
+ * Project requirements:
+ * - Desktop or Web application (with optional Android app)
+ * - User authentication and user management
+ * - Messaging (not external email)
+ * - User Profile
+ * - Dashboard
+ * - Some form of transaction between users
+ * - Use a database with at least five tables
+ * 
+ * Description: We are creating a professional application similar to Reddit where working professionals can connect with each other.
+-->
+
+<!-- Developer: [Your Name], 
+     Changes made: [Description], 
+     Date: [YYYY-MM-DD] -->
+
 <?php
+
+
 session_start();
 include('databaseConnection.php');
 
+//get data from the form and post to the database
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -13,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("Prepare failed for users table: " . $conn->error);
     }
     $stmt->bind_param("sss", $username, $email, $password);
-
+    ///prepared statement for the user table
     if ($stmt->execute() === TRUE) {
         $user_id = $stmt->insert_id; // Get the ID of the newly created user
         $stmt->close();
@@ -23,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $lastName = $_POST['last_name'];
         $bio = $_POST['bio'];
 
+       //insert into profile table
         $stmt = $conn->prepare("INSERT INTO profile (user_id, first_name, last_name, bio) VALUES (?, ?, ?, ?)");
         if ($stmt === false) {
             die("Prepare failed for profile table: " . $conn->error);
@@ -110,6 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </style>
 </head>
 <body>
+    <!-- Create form for registration page-->
     <div class="container">
         <h2>Register</h2>
         <form action="register.php" method="post">
