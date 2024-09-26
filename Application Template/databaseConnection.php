@@ -1,3 +1,27 @@
+<!--
+ * Creator: Zach Fordahl
+ * Date: 9/26/2024
+ * Class: CSC450
+ * Instructor: James Tucker
+ * Group: 3
+ * 
+ * Project requirements:
+ * - Desktop or Web application (with optional Android app)
+ * - User authentication and user management
+ * - Messaging (not external email)
+ * - User Profile
+ * - Dashboard
+ * - Some form of transaction between users
+ * - Use a database with at least five tables
+ * 
+ * Description: We are creating a professional application similar to Reddit where working professionals can connect with each other.
+-->
+
+<!-- Developer: [Your Name], 
+     Changes made: [Description], 
+     Date: [YYYY-MM-DD] -->
+
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -49,6 +73,61 @@ $sql = "CREATE TABLE IF NOT EXISTS profile (
     bio TEXT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
 )";
+if ($conn->query($sql) === TRUE) {
+    error_log("Table profile created successfully or already exists.");
+} else {
+    error_log("Error creating table: " . $conn->error);
+}
+
+//Create experience table
+$sql = "CREATE TABLE IF NOT EXISTS experience (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    job_name VARCHAR(100) NOT NULL,
+    job_title VARCHAR(100) NOT NULL,
+    years_worked VARCHAR(50) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);";
+if ($conn->query($sql) === TRUE) {
+    error_log("Table profile created successfully or already exists.");
+} else {
+    error_log("Error creating table: " . $conn->error);
+}
+// Create skills table
+$sql = "CREATE TABLE IF NOT EXISTS skills (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    skill_name VARCHAR(100) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);";
+if ($conn->query($sql) === TRUE) {
+    error_log("Table profile created successfully or already exists.");
+} else {
+    error_log("Error creating table: " . $conn->error);
+}
+
+// Create interests table
+$sql = "CREATE TABLE IF NOT EXISTS interests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    interest_name VARCHAR(100) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);";
+if ($conn->query($sql) === TRUE) {
+    error_log("Table profile created successfully or already exists.");
+} else {
+    error_log("Error creating table: " . $conn->error);
+}
+
+// Create education table
+$sql = "CREATE TABLE IF NOT EXISTS education (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    school_name VARCHAR(100) NOT NULL,
+    degree_obtained VARCHAR(100) NOT NULL,
+    years_attended VARCHAR(50) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);";
 if ($conn->query($sql) === TRUE) {
     error_log("Table profile created successfully or already exists.");
 } else {
