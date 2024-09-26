@@ -1,7 +1,30 @@
+<!--
+ * Creator: Zach Fordahl
+ * Date: 9/26/2024
+ * Class: CSC450
+ * Instructor: James Tucker
+ * Group: 3
+ * 
+ * Project requirements:
+ * - Desktop or Web application (with optional Android app)
+ * - User authentication and user management
+ * - Messaging (not external email)
+ * - User Profile
+ * - Dashboard
+ * - Some form of transaction between users
+ * - Use a database with at least five tables
+ * 
+ * Description: We are creating a professional application similar to Reddit where working professionals can connect with each other.
+-->
+
+<!-- Developer: [Your Name], 
+     Changes made: [Description], 
+     Date: [YYYY-MM-DD] -->
+
 <?php
 session_start();
 include('databaseConnection.php');
-
+//post statement  to get data from the form to check if user exist and if so allows in and if not denies
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -88,6 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </style>
 </head>
 <body>
+    <!-- Form to get user username and password to validate users-->
     <div class="container">
         <h2>Login</h2>
         <?php if (isset($error)): ?>
@@ -104,3 +128,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 </body>
 </html>
+
