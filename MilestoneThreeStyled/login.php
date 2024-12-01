@@ -145,16 +145,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         button {
             padding: 10px;
-            background-color: rgba(228, 0, 70, 0.8);
+            background-color: #3269ba;
             color: #fff;
-            border: 2px solid #e40046;
+            border: 1px solid black;
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s, box-shadow 0.3s;
         }
         button:hover {
-            background-color: rgba(228, 0, 70, 1);
-            box-shadow: 0 0 10px #e40046;
+            /*background-color: rgba(228, 0, 70, 1);*/
+            box-shadow: 0 0 10px black;
         }
          p {
             text-align: center;

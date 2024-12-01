@@ -11,7 +11,7 @@ body {
           border-top:  3px solid black;
           border-left:  3px solid black;
           border-right:  3px solid black;
-          border-bottom:  3px solid black;
+          /*border-bottom:  3px solid black;*/
           background-color: #14428c;
 
           display: flex;
@@ -38,7 +38,7 @@ body {
         }
 
         .left-nav a:hover {
-            background-color: gray;
+            background-color: #b5b5b0;
         }
         .left-nav ul{
             list-style-type: none; /* Remove bullet points */
@@ -54,7 +54,7 @@ body {
 
         /* Right Navigation Bar */
         .right-nav {
-            background-color: #7b818a;
+            background-color: #b5b5b0;
             color: black;
 
             width: 40vh;
@@ -78,7 +78,7 @@ body {
         }
 
         .right-nav a:hover {
-            background-color: gray; /* Hover color */
+            background-color: #b5b5b0; /* Hover color */
         }
 
         .right-nav ul{
@@ -92,7 +92,7 @@ body {
             display: flex;
             flex-direction: row;
 
-            background: #7b818a; /* White background */
+            background: #b5b5b0; /* White background */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Lifted effect */
             margin-left: 10px; /* Space between left nav and main content */
             margin-right: 10px; /* Space between right nav and main content */
@@ -319,6 +319,7 @@ body {
     }
     th {
         background-color: #14428c;
+        color: white;
     }
     /*tr:nth-child(even) {
         background-color: #ecf0f1;
