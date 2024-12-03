@@ -59,7 +59,12 @@ function loadPage(page) {
         sidebarContent.innerHTML = `<div class="nav-bar"><div id="home-navbar"></div></div>`;
         console.log('Sidebar content updated');
         loadSessionProfile(); loadHomeNavBar();
+         
         console.log('Home page logic end');
+         buildProfileBackground ='.homepage-details';
+        loadingError= '<p>Error loading Home profile details.</p>';
+        fetchingError='Error fetching home profile:';
+        buildUserProfileDetails(userId,buildProfileBackground,loadingError,fetchingError);
     }
 
         /**
@@ -92,6 +97,10 @@ function loadPage(page) {
         `;
         loadUserContactList();
         loadSessionProfile();
+          buildProfileBackground ='#profile-details';
+        loadingError= '<p>Error loading chat profile details.</p>';
+        fetchingError='Error fetching chat profile:';
+        buildUserProfileDetails(userId,buildProfileBackground,loadingError,fetchingError);
         /**
  * Loads the content for the profile page.
  *
@@ -119,6 +128,10 @@ function loadPage(page) {
 
         loadSessionProfile();
         loadProfileNavBar();
+          buildProfileBackground ='#profile-details';
+        loadingError= '<p>Error loading profile details.</p>';
+        fetchingError='Error fetching user profile:';
+        buildUserProfileDetails(userId,buildProfileBackground,loadingError,fetchingError);
 
         /**
  * Loads the content for the admin page.
@@ -149,6 +162,10 @@ function loadPage(page) {
 
         loadSessionProfile();
         loadAdminNavBar();
+           buildProfileBackground ='#profile-details';
+        loadingError= '<p>Error loading Admin profile details.</p>';
+        fetchingError='Error fetching admin profile:';
+        buildUserProfileDetails(userId,buildProfileBackground,loadingError,fetchingError);
     }
 }
      /**
@@ -335,3 +352,54 @@ function sendMessage(userId) {
         };
     });
 }
+
+function buildUserProfileDetails(userId,buildLocation,loadingError,buildingError) {
+    fetch(`get_user_profile.php?user_id=${userId}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log('buildUserProfile response:', data);
+            const profileDetails = document.querySelector(buildLocation);
+            if (profileDetails) {
+                if (data.error) {
+                    profileDetails.innerHTML = `<p>${data.error}</p>`;
+                    return;
+                }
+
+                // Initialize profile content with profile and cover pictures if available
+                let profileContent = '';
+                if (data.profile_pic) {
+                    profileContent += `<img src="${data.profile_pic}" alt="Profile Picture" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%;">`;
+                }
+                if (data.cover_pic) {
+                    profileContent += `<img src="${data.cover_pic}" alt="Cover Picture" style="width: 100%; height: 200px; object-fit: cover;">`;
+                }
+
+                // Add user profile details below the images
+                profileContent += `
+                    <h2>${data.first_name} ${data.last_name}</h2>
+                    <p>Username: ${data.username}</p>
+                    <p>Bio: ${data.bio}</p>
+                    <p>Job Title: ${data.job_title}</p>
+                    <p>Address: ${data.address}</p>
+                    <p>Phone Number: ${data.phone_number}</p>
+                    <p>Experience: ${data.experience ? data.experience.split('|').join('<br>') : 'No experience listed'}</p>
+                    <p>Skills: ${data.skills ? data.skills : 'No skills listed'}</p>
+                    <p>Interests: ${data.interests ? data.interests : 'No interests listed'}</p>
+                    <p>Education: ${data.education ? data.education.split('|').join('<br>') : 'No education listed'}</p>
+                `;
+
+                // Update the profile details with the constructed profile content
+                profileDetails.innerHTML = profileContent;
+            }
+        })
+        .catch(error => {
+            const profileDetails = document.querySelector(buildLocation);
+            if (profileDetails) {
+                profileDetails.innerHTML = loadingError;
+            }
+            console.log(buildingError, error.message);
+        });
+}
+
+
+
