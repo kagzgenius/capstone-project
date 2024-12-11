@@ -27,7 +27,7 @@ body {
             padding: 15px 30px; /* Add padding for size */
             margin: 10px; /* Spacing between labels */
             border-radius: 30px; /* Rounded corners */
-            background-color: #ecf0f1; /* Button background color */
+            background-color: #d7dbe0; /* Button background color */
             color: #2c3e50; /* Darker text color */
             text-align: center; /* Center text */
             font-weight: bold;
@@ -38,7 +38,7 @@ body {
         }
 
         .left-nav a:hover {
-            background-color: #b5b5b0;
+            background-color: #b9c0c9;
         }
         .left-nav ul{
             list-style-type: none; /* Remove bullet points */
@@ -54,7 +54,7 @@ body {
 
         /* Right Navigation Bar */
         .right-nav {
-            background-color: #b5b5b0;
+            background-color: #d7dbe0;
             color: black;
 
             width: 40vh;
@@ -68,7 +68,7 @@ body {
             padding: 10px 20px; /* Add padding for size */
             margin: 10px; /* Spacing between labels */
             border-radius: 30px; /* Rounded corners */
-            background-color: #ecf0f1; /* Button background color */
+            background-color: #d7dbe0; /* Button background color */
             color: #2c3e50; /* Darker text color */
             text-align: center; /* Center text */
             cursor: pointer; /* Change cursor to pointer */
@@ -78,7 +78,7 @@ body {
         }
 
         .right-nav a:hover {
-            background-color: #b5b5b0; /* Hover color */
+            background-color: #b9c0c9; /* Hover color */
         }
 
         .right-nav ul{
@@ -92,7 +92,7 @@ body {
             display: flex;
             flex-direction: row;
 
-            background: #b5b5b0; /* White background */
+            background: #d7dbe0; /* White background */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Lifted effect */
             margin-left: 10px; /* Space between left nav and main content */
             margin-right: 10px; /* Space between right nav and main content */
@@ -245,7 +245,7 @@ body {
             height: 100%;
             width: auto;
             cursor: pointer;
-            background-color: #ecf0f1;
+            background-color: #d7dbe0;
 
         }
         .contact-container:hover{
@@ -325,7 +325,7 @@ body {
         background-color: #ecf0f1;
     }*/
     tr{
-      background-color: #ecf0f1;
+      background-color: #d7dbe0;
     }
     tr:hover {
         background-color: #f1f1f1;}
@@ -352,7 +352,7 @@ body {
         max-width: 600px;
         margin: 0 auto;
         padding: 20px;
-        background-color:  #ecf0f1;
+        background-color:  #d7dbe0;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
@@ -390,7 +390,7 @@ body {
         display: inline-block;
         padding: 10px 20px;
         font-size: 16px;
-        color: #ecf0f1;
+        color: #d7dbe0;
         background-color: #14428c;
         border: none;
         border-radius: 5px;
@@ -758,7 +758,7 @@ body {
     border: 1px solid black;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #ecf0f1;
+    background-color: #c7ccd4;
     margin-top: 20px;
     width: 300px;
     max-height: 300px;
@@ -779,7 +779,7 @@ body {
     background-color: #14428c;
     border: none;
     border-radius: 4px;
-    color: #ecf0f1;
+    color: #c7ccd4;
     cursor: pointer;
 }
 
